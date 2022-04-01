@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const LivreSchema = new mongoose.Schema(
+const livreSchema = new mongoose.Schema(
     {
         nom : {
             type: String,
@@ -8,13 +8,16 @@ const LivreSchema = new mongoose.Schema(
             trim: true,
         },
         categorie : {
-            type: [String]
+            type: [String],
+            required: true,
         },
         Description: {
-            type: String
+            type: String,
+            required: true,
         },
         Auteur : {
-            type: String
+            type: String,
+            required: true,
         },
         Empreint : {
             type: [
@@ -40,4 +43,4 @@ const LivreSchema = new mongoose.Schema(
     }
 );
 
-module.exports = moongose.model("livre", LivreSchema)
+module.exports = mongoose.model("livre", livreSchema)

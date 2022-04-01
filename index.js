@@ -6,6 +6,7 @@ require("./config/db");
 require("dotenv").config({ path: "./config/.env" });
 const cors = require("cors");
 const userRoutes = require("./routes/user.route")
+const livreRoutes = require("./routes/livre.route")
 
 
 const corsOptions = {
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 // routes
 app.use("/api/user", userRoutes);
+app.use("/api/livre", livreRoutes)
 
 
 app.listen(process.env.PORT, () => {

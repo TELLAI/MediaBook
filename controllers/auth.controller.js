@@ -1,4 +1,10 @@
 const userModel = require("../models/users.model")
+const jwt = require("jsonwebtoken")
+const maxAge = 3 * 24 * 60 * 60 * 1000  // 3 jours pour expirer
+
+const createToken = (id) => {
+    return jwt.sign({id}, process.env.TOKEN_SECRET, {expiresIn: maxAge})
+}
 
 const inscription = async (req, res) => {
 
@@ -17,13 +23,20 @@ const login = async (req, res) => {
 
     try{
         const user = await userModel.login(email, password)
-        res.status(200).json({user : user.name})
+        const token = createToken(user._id)
+        res.cookie("token-jwt", token, {httpOnly: true, maxAge})
+        res.status(200).json({user : token})
     }catch(err){
         res.status(201).send(err)
     }
 }
 
+const logout = async (req, res) => {
+    res.cookie("token-jwt", "", {httpOnly : true, maxAge : 1})
+}
+
 module.exports = {
     inscription,
     login,
+    logout,
 }
