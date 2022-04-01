@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
+const bodyParser = require("body-parser");
 require("./config/db");
 require("dotenv").config({ path: "./config/.env" });
 const cors = require("cors");
-const UserModel = require("./models/users.model");
+const userRoutes = require("./routes/user.route")
+
 
 const corsOptions = {
   origin: [process.env.CLIENT_URL, "http://localhost:3000"],
@@ -16,22 +19,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// bodyParser va nous permettre de mettre en forme les requetes 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
 
-app.post("/add", async (req, res) => {
-    const {name, email, password} = req.body
+// routes
+app.use("/api/user", userRoutes);
 
-    try {
-        const user = await UserModel.create({name, email, password});
-        res.status(201).json({ user: user._id});
-    }
-    catch(err) {
-        const errors = signUpErrors(err);
-        res.status(200).send( {errors} )
-    }
-});
 
 app.listen(process.env.PORT, () => {
   console.log(`Example app listening on port ${process.env.PORT}`);
