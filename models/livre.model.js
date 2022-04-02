@@ -19,16 +19,14 @@ const livreSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        Empreint : {
-            type: [
+        Empreint : [
             {
                 empreinteurId: String,
                 empreinteurNom: String,
-                dateEmpreint: Number,
-                dateRendre: Number,
+                dateEmpreint: String,
+                dateRendre: String,
             }
         ],
-        },
         Reservation: {
             type : [
                 {
