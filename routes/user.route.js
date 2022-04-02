@@ -11,6 +11,7 @@ router.post("/logout", logout)
 
 // gestion user
 router.delete("/drop", userController.dropUser)
+router.post("/empreint", userController.addEmpreint)
 
 
 

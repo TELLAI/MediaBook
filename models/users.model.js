@@ -23,25 +23,21 @@ const userSchema = mongoose.Schema(
       max: 1024,
       minlength: 6,
     },
-    livre_empreinte: {
-      type: [
+    livre_empreinte: [
         {
           livreId: String,
           livreNom: String,
-          date_empreint: Number,
-          date_rendre: Number,
+          dateEmpreint: String,
+          dateRendre: String,
         },
       ],
-    },
-    livre_reserve: {
-      type: [
+    livre_reserve: [
         {
           livreId: String,
           livreNom: String,
         },
       ],
     },
-  },
   {
     timestamps: true,
   }

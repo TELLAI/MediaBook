@@ -27,14 +27,12 @@ const livreSchema = new mongoose.Schema(
                 dateRendre: String,
             }
         ],
-        Reservation: {
-            type : [
+        Reservation: [
                 {
                     reserveurId: String,
                     reserveurNom: String,
                 }
             ],
-        },
     },
     {
         timestamps : true,

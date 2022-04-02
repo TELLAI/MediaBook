@@ -12,7 +12,22 @@ const dropUser = async (req, res) => {
     }
 }
 
+const addEmpreint = async (req, res) => {
+    const {userId, livreId, livreNom, dateEmpreint, dateRendre} = req.body
+
+    try{
+        const empreint = await userModel.findByIdAndUpdate({ _id : userId }, { $push :{
+          livre_empreinte:
+            { livreId, livreNom, dateEmpreint, dateRendre },
+        }});
+
+        res.status(201).send(`Empreint du livre ${livreNom} enregistré`)
+    }catch(err){
+        res.status(200).send(err)
+    }
+}
+
 module.exports = {
     dropUser,
-
+    addEmpreint,
 }
