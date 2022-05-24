@@ -101,3 +101,15 @@ body{
   padding: 1%;
   border-radius: 15px;
 }
+
+
+
+/*------------------ CarLivre -------------------*/
+
+.livre-container{
+  width: 25%;
+}
+
+.list-livre li {
+  list-style: none;
+}

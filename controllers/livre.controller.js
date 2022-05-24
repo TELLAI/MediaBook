@@ -77,6 +77,16 @@ const removeReserve = async (req, res) => {
         }
 }
 
+const affichage = async (req, res) => {
+
+    try {
+        const livres = await livreModel.find()
+        res.status(201).json(livres)
+    }catch (err){
+        res.status(200).send(err)
+    }
+}
+
 module.exports = {
     addLivre,
     dropLivre,
@@ -84,4 +94,5 @@ module.exports = {
     reserverLivre,
     removeEmpreint,
     removeReserve,
+    affichage,
 }
