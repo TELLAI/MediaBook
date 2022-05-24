@@ -27,7 +27,25 @@ const addEmpreint = async (req, res) => {
     }
 }
 
+const addReserve = async (req, res) => {
+    const {userId, livreId, livreNom} = req.body
+
+    try{
+        const reserve = await userModel.findByIdAndUpdate(
+          { _id: userId },
+          { $push: { livre_reserve : {
+              livreId, livreNom
+          } } }
+        );
+
+        res.status(201).send(`Le livre ${livreNom} a été empreinté.`)
+    }catch(err){
+        res.status(200).send(err)
+    }
+}
+
 module.exports = {
     dropUser,
     addEmpreint,
+    addReserve,
 }

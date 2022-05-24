@@ -1,0 +1,103 @@
+body{
+  margin: 0;
+}
+
+#header-pic {
+  background-image: url("img/media.jpg");
+  height: 250px;
+}
+
+.nav-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #bc5a45;
+}
+
+.active{
+  background-color: #f18973;
+}
+.nav-container a{
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #f4e1d2;
+  border-radius: 10em;
+  height:1.5em;
+  line-height: 1.5em;
+}
+
+/*------------ Bascule LogIn ----------*/
+
+.log-container {
+  width: 50%;
+  margin: 5% auto;
+  text-align: center;
+}
+
+.log-container button {
+  background-color: #bc5a45;
+  font-size: 25px;
+  margin: 0 0.5em;
+  padding: 0.3em;
+  border-color: #bc5a45;
+  border-radius: 15px;
+  color: #f4e1d2;
+  font-weight: bold;
+}
+
+/*------------ Sign Up ----------*/
+
+#sign-up-form{
+  background-color: #f18973;
+  width: 50%;
+  margin: 10% auto;
+  text-align: center;
+  border-radius: 15px;
+  padding: 1%;
+}
+
+#sign-up-form label {
+  color: #f4e1d2;
+  font-weight: bold;
+}
+
+#sign-up-form .submit {
+  background-color: #bc5a45;
+  border-color: #bc5a45;
+  font-size: 25px;
+  color: #f4e1d2;
+  font-weight: bold;
+  padding: 0.3em;
+  border-radius: 15px;
+}
+
+.Error {
+  color: red;
+  font-weight: bold;
+}
+
+/*------------ Sign In ----------*/
+#sign-in-form{
+  background-color: #f18973;
+  width: 50%;
+  margin: 10% auto;
+  text-align: center;
+  border-radius: 15px;
+  padding: 1%;
+}
+
+#sign-in-form label {
+  color: #f4e1d2;
+  font-weight: bold;
+}
+
+#sign-in-form .submit {
+  background-color: #bc5a45;
+  border-color: #bc5a45;
+  font-size: 25px;
+  color: #f4e1d2;
+  font-weight: bold;
+  padding: 1%;
+  border-radius: 15px;
+}

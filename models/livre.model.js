@@ -19,6 +19,12 @@ const livreSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        photo : {
+            type: String,
+        },
+        test : {
+            type: String,
+        },
         Empreint : [
             {
                 empreinteurId: String,

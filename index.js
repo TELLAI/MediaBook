@@ -7,7 +7,7 @@ require("dotenv").config({ path: "./config/.env" });
 const cors = require("cors");
 const userRoutes = require("./routes/user.route")
 const livreRoutes = require("./routes/livre.route")
-
+const authMiddleware = require("./middleware/auth.middleware")
 
 const corsOptions = {
   origin: [process.env.CLIENT_URL, "http://localhost:3000"],
@@ -24,6 +24,13 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
+
+// jwt 
+app.get('*', authMiddleware.checkUser); // l'etoile nous permet de selectionner toutes les routes et ainsi de faire la verification sur chaque route
+app.get('/jwtid', authMiddleware.requireAuth, (req, res) => {
+  res.status(200).send(res.locals.user._id)
+})
+
 
 // routes
 app.use("/api/user", userRoutes);
