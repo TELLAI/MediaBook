@@ -25,7 +25,8 @@ const login = async (req, res) => {
     try{
         const user = await userModel.login(email, password)
         const token = createToken(user._id, user.name)
-        res.cookie("mytoken2", token, {httpOnly: true, maxAge})
+        console.log(email, password)
+        res.cookie("token", token, {httpOnly: true, maxAge})
         res.status(200).json({user : token})
     }catch(err){
         res.status(201).send(err)

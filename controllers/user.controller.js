@@ -44,8 +44,19 @@ const addReserve = async (req, res) => {
     }
 }
 
+const getUsers = async (req, res) => {
+
+    try{
+        const users = await userModel.find()
+        res.status(201).send(users)
+    }catch(err){
+        res.status(200).res.send(err)
+    }
+}
+
 module.exports = {
     dropUser,
     addEmpreint,
     addReserve,
+    getUsers,
 }

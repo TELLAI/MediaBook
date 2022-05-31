@@ -87,6 +87,19 @@ const affichage = async (req, res) => {
     }
 }
 
+const getLivre = async (req, res) => {
+    const {id} = req.params
+
+    try{
+        const livre = await livreModel.findById(id)
+        console.log("livre")
+        res.status(201).json(livre)
+    }catch(err){
+        console.log("livre");
+        res.status(200).send(err)
+    }
+}
+
 module.exports = {
     addLivre,
     dropLivre,
@@ -95,4 +108,5 @@ module.exports = {
     removeEmpreint,
     removeReserve,
     affichage,
+    getLivre,
 }
