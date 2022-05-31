@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(cookieParser());
 
 // jwt 
-app.get('*', authMiddleware.checkUser); // l'etoile nous permet de selectionner toutes les routes et ainsi de faire la verification sur chaque route
+//app.get('*', authMiddleware.checkUser); // l'etoile nous permet de selectionner toutes les routes et ainsi de faire la verification sur chaque route
 app.get('/jwtid', authMiddleware.requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id)
 })
@@ -35,6 +35,7 @@ app.get('/jwtid', authMiddleware.requireAuth, (req, res) => {
 // routes
 app.use("/api/user", userRoutes);
 app.use("/api/livre", livreRoutes)
+
 
 
 app.listen(process.env.PORT, () => {

@@ -26,7 +26,7 @@ const checkUser = async (req, res, next) => {
 }
 
 const requireAuth = (req, res, next) => {
-  const token = req.cookies.mytoken;
+  const token = req.cookies.token;
 
   if (token) {
     jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
@@ -34,6 +34,7 @@ const requireAuth = (req, res, next) => {
         console.log(err);
       } else {
         console.log(decodedToken.id);
+        res.send({token : decodedToken.id})
         next();
       }
     });

@@ -10,6 +10,7 @@ router.post("/logout", logout)
 
 
 // gestion user
+router.get("/membres", userController.getUsers)
 router.delete("/drop", userController.dropUser)
 router.post("/empreint", userController.addEmpreint)
 router.post("/reserve", userController.addReserve)
