@@ -1,31 +1,34 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import CardLivre from '../components/CardLivre';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
+import { useQuery } from "react-query";
+import { getLivre } from "../api";
 
 const Catalogue = () => {
 
-    const [livres, setLivres] = useState([])
-    const l = [1, 2, 3]
+  const queryKey = ["livres"];
+  const { isLoading, data } = useQuery(queryKey, () => getLivre());
 
-    const getLivre = async () => {
-        await axios.get("http://localhost:5000/api/livre/affichage").then((res) => {
-            setLivres(res.data)
-        })
-    }
-    useEffect(() => {
-        getLivre()
-    }, [])
+  const livres = data || [];
+
 
     return (
-      <div className='collection'>
+      <div className="collection">
         <Header />
         <Navbar />
-        <ul className='list-livre'>
-            {Array.isArray(livres) ? livres.map((livre) => (<li><CardLivre { ...livre}/></li>)) : []}
+        <ul className="list-livre">
+          {Array.isArray(livres)
+            ? livres.map((livre, index) => (
+                <a href={`/livre/${livre._id}`} key={index}>
+                  <li key={index}>
+                    <CardLivre {...livre} key={index} />
+                  </li>
+                </a>
+              ))
+            : []}
         </ul>
-        
       </div>
     );
 };

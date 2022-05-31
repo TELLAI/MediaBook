@@ -1,5 +1,13 @@
+/* ----------------- import font style ------------ */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Secular+One&display=swap');
+
+
+
+
 body{
   margin: 0;
+  font-family: 'Secular One', sans-serif;
 }
 
 #header-pic {
@@ -14,7 +22,7 @@ body{
   background-color: #bc5a45;
 }
 
-.active{
+.nav-active{
   background-color: #f18973;
 }
 .nav-container a{
@@ -106,10 +114,40 @@ body{
 
 /*------------------ CarLivre -------------------*/
 
+.list-livre{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
 .livre-container{
-  width: 25%;
+  margin: 0 25px;
+  background-color: #fef5f3;
+  padding: 1rem;
+  border-radius: 15px;
+}
+.livre-container img {
+  border-radius: 15px;
+}
+
+.livre-container h2 {
+  color: #d2887a;
+}
+.livre-container h4 {
+  color: #aa4d3b;
 }
 
 .list-livre li {
   list-style: none;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+
+/*--------------Page Livre -----------*/
+
+.desc-container {
+  text-align: center;
+  width: 50%;
+  margin: auto;
 }

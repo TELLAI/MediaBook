@@ -6,15 +6,17 @@ const SignInForm = () => {
     const [password, setPassword] = useState("")
 
     const handleForm = async (e) => {
+        e.preventDefault()
 
         await axios({
-            url : "http://localhost:5000/api/user/login",
-            method : "get",
-            data : {
-                email,
-                password
-            },
-        })
+          url: `http://localhost:5000/api/user/login`,
+          method: "post",
+          withCredentials : true,
+          data: {
+            email,
+            password,
+          },
+        });
     }
 
     return (
@@ -26,10 +28,10 @@ const SignInForm = () => {
                 <br />
                 <label htmlFor="password">Password</label>
                 <br />
-                <input type="text" name="password" onChange={(e) => {setPassword(e.target.value)}} value={password} />
+                <input type="password" name="password" onChange={(e) => {setPassword(e.target.value)}} value={password} />
                 <br />
                 <br />
-                <input type="submit" name='Envoyer' className='submit' />
+                <input type="submit" value='Envoyer' className='submit' />
             </form>
         </>
     );

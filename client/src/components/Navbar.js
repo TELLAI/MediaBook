@@ -4,13 +4,25 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
     return (
       <div className="nav-container">
-        <NavLink exact to="/" activeClassName="nav-active">
+        <NavLink
+          exact
+          to="/"
+          className={({ isActive }) => (isActive ? "nav-active" : "none")}
+        >
           Acceuil
         </NavLink>
-        <NavLink exact to="/list" activeClassName="nav-active">
+        <NavLink
+          exact
+          to="/list"
+          className={({ isActive }) => (isActive ? "nav-active" : "none")}
+        >
           Catalogue
         </NavLink>
-        <NavLink exact to="/profil" activeClassName="nav-active">
+        <NavLink
+          exact
+          to="/profil"
+          className={({ isActive }) => (isActive ? "nav-active" : "none")}
+        >
           Mon profil
         </NavLink>
       </div>
