@@ -31,7 +31,7 @@ const SignInForm = () => {
                 <input type="password" name="password" onChange={(e) => {setPassword(e.target.value)}} value={password} />
                 <br />
                 <br />
-                <input type="submit" value='Envoyer' className='submit' />
+                <input type="submit" value='Se connecter' className='submit' />
             </form>
         </>
     );

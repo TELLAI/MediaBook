@@ -12,7 +12,7 @@ body{
 
 #header-pic {
   background-image: url("img/media.jpg");
-  height: 250px;
+  height: 290px;
 }
 
 .nav-container{
@@ -31,8 +31,9 @@ body{
   text-decoration: none;
   color: #f4e1d2;
   border-radius: 10em;
-  height:1.5em;
-  line-height: 1.5em;
+  height:2em;
+  line-height: 2em;
+  font-size: 35px;
 }
 
 /*------------ Bascule LogIn ----------*/
@@ -47,8 +48,8 @@ body{
   background-color: #bc5a45;
   font-size: 25px;
   margin: 0 0.5em;
-  padding: 0.3em;
-  border-color: #bc5a45;
+  padding: 0.6em;
+  border: #bc5a45;
   border-radius: 15px;
   color: #f4e1d2;
   font-weight: bold;
@@ -72,11 +73,11 @@ body{
 
 #sign-up-form .submit {
   background-color: #bc5a45;
-  border-color: #bc5a45;
+  border: #bc5a45;
   font-size: 25px;
   color: #f4e1d2;
   font-weight: bold;
-  padding: 0.3em;
+  padding: 0.6em;
   border-radius: 15px;
 }
 
@@ -102,11 +103,11 @@ body{
 
 #sign-in-form .submit {
   background-color: #bc5a45;
-  border-color: #bc5a45;
+  border: #bc5a45;
   font-size: 25px;
   color: #f4e1d2;
   font-weight: bold;
-  padding: 1%;
+  padding: 0.6em;
   border-radius: 15px;
 }
 

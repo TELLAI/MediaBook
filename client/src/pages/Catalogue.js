@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CardLivre from '../components/CardLivre';
+import CardLivre from '../components/livre/CardLivre';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import { useQuery } from "react-query";
