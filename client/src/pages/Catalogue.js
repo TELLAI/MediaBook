@@ -9,7 +9,7 @@ import { getLivre } from "../api";
 const Catalogue = () => {
 
   const queryKey = ["livres"];
-  const { isLoading, data } = useQuery(queryKey, () => getLivre());
+  const { isLoading, data } = useQuery(queryKey)
 
   const livres = data || [];
 

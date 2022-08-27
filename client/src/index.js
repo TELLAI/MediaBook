@@ -3,22 +3,25 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import './index.css';
 import App from './App';
-import { Provider } from 'react-redux';
-import store from "./feature/users.slice"
 import {QueryClient, QueryClientProvider} from "react-query"
 import {ReactQueryDevtools} from "react-query/devtools"
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 900000,
+      cacheTime: 1900000,
+    },
+  },
+});
 
 root.render(
   <StrictMode>
-    <Provider store={store}>
       <QueryClientProvider client={queryClient}>
         <App />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
-    </Provider>
   </StrictMode>
 );

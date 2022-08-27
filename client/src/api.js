@@ -34,3 +34,17 @@ import axios from "axios";
         .catch((err) => console.log(err));
       return result;
     };
+    
+        export const fetchToken = async () => {
+          let result;
+          await axios({
+              method : "get",
+              url : `http://localhost:5000/jwtid`,
+              withCredentials : true
+          })
+            .then((res) => {
+              result = res.data;
+            })
+            .catch((err) => console.log(err));
+          return result;
+        };

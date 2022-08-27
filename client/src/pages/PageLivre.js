@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import { useQuery } from "react-query";
 import { fetchLivre } from "../api";
+import { enabled } from 'express/lib/application';
 
 const PageLivre = () => {
 
@@ -23,17 +24,22 @@ const PageLivre = () => {
             <div> LOADING</div>
           ) : 
         <div className="desc-container">
-          <h2>{livre.nom}</h2>
+          <h2 id='titre'>{livre.nom}</h2>
           <img src={livre.photo} alt={livre.nom} />
           <div className="detail">
-            <h4>Auteur : {livre.Auteur}</h4>
-            <h4>Catégorie : {livre.categorie}</h4>
-            {livre.Empreint || livre.Reservation ? (
-              <h4>Livre non disponible</h4>
+            <h4 id='auteur'>{livre.Auteur}</h4>
+            <h4 className='categorie'>
+              {livre.categorie.map((c) => (
+              <span> {c} </span>
+            ))}
+            </h4>
+            
+            {livre.Empreint.length || livre.Reservation.length ? (
+              <h4 ><span className='dispo negatif'>Livre non disponible</span></h4>
             ) : (
-              <h4>Livre disponible</h4>
+              <h4 ><span className='dispo positive'>Livre disponible</span></h4>
             )}
-            <p>{livre.Description}</p>
+            <p className='desc'>{livre.Description}</p>
           </div>
         </div>
         }

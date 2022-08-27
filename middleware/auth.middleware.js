@@ -3,7 +3,7 @@ const userModel = require("../models/users.model");
 
 
 const checkUser = async (req, res, next) => {
-    const token = req.cookies.mytoken
+    const token = req.cookies.token
     if(token){
         jwt.verify(token, process.env.TOKEN_SECRET, async function (err, decoded) {
 
@@ -33,8 +33,7 @@ const requireAuth = (req, res, next) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(decodedToken.id);
-        res.send({token : decodedToken.id})
+        res.send({id_user : decodedToken.id, nom_user : decodedToken.name})
         next();
       }
     });
